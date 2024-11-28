@@ -1,0 +1,52 @@
+
+.image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    /* Placeholder images, can be removed */
+    background-image: url('https://media.istockphoto.com/id/1147544807/sv/vektor/ingen-miniatyr-bild-vektor-grafik.jpg?s=612x612&w=0&k=20&c=RWp5ECPYkIEO8J3zxyvsc4Lrf68NiLDybtPHix_QI1I='); 
+    background-size: cover;   
+    background-position: center;
+}
+
+.outer-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.container {
+    max-width: 1100px;
+    width: 100%;
+    min-width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.item {
+    position: relative;
+    margin: 10px;
+    height: 340px;
+    max-width: 320px;
+    width: 100%;
+    padding: 10px;
+    transition: transform 0.3s;
+}
+
+.item:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+/* Fill the whole screen when only 1 product wide */
+@media (max-width: 680px) {
+    .item {
+        max-width: 500px;
+    }
+}
