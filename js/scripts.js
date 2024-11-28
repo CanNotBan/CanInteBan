@@ -18,12 +18,16 @@ function removeItem (){}
 
 //When button LÄGG TILL is pushed - You will add one of the same item 
 
-function addItem(){} //Could this work as the forst one?
+function addItem(){} //Could this work as the first one?
 
 
 // When button Swish is pushed - You will get something that says "You have paid" and then removes everything from cart and goes to first page. 
 
-function payItems(){}
+function payItems(){
+    alert ("Tack för att du har handlat hos oss!");
+    const items_list = document.getElementById("items_list");
+    items_list.innerHTML= "";
+}
 
 
 //Might need a button GÅ TILLBAKA - to go from checkout to mainpage.
