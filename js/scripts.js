@@ -8,10 +8,10 @@
 
 //This function adds new listItem
 function addItem(itemName) {
-    const items_list = document.getElementById("items_list");
+    const cart_list = document.getElementById("cart_list");
     const newListItem = document.createElement("li");
     newListItem.textContent = itemName;
-    items_list.appendChild(newListItem);
+    cart_list.appendChild(newListItem);
 }
 //When button CART is pushed - You should go to checkout
 
@@ -33,8 +33,8 @@ function removeItem (){
 //This function clears the list by ID: "items_list".
 function payItems(){
     alert ("Tack för att du har handlat hos oss!");
-    const items_list = document.getElementById("items_list");
-    items_list.innerHTML= "";
+    const cart_list = document.getElementById("cart_list");
+    cart_list.innerHTML= "";
 }
 
 
