@@ -1,0 +1,26 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: SSH into VPS and deploy
+        uses: appleboy/ssh-action@v0.1.4
+        with:
+          host: ${{ secrets.VPS_IP }}
+          username: root
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            cd /root/temp/CanInteBan
+            git pull origin main
+            docker build -t my-app .
+            docker-compose down
+            docker-compose up -d
