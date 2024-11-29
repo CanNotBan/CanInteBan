@@ -2,10 +2,32 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     height: 100%;
     width: 100%;
     font-family: 'Roboto', Arial, sans-serif;
+}
+
+a,
+a:visited {
+    text-decoration: none;
+}
+
+.box-shadow {
+    box-shadow: rgba(0, 0, 0, 0.24) 1px 1px 8px;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.text-no-wrap {
+    white-space: nowrap;
+}
+
+.text-center {
+    text-align: center;
 }
