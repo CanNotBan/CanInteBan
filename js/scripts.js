@@ -29,7 +29,8 @@ function saveTotal() {
 //function to load the current total from local-storage
 function loadTotal(page) {
     let saved_total = localStorage.getItem('total_saved');
-    document.getElementById(`total_${page}`).innerText = `Total is ${saved_total} kr`
+    total_price = parseInt(saved_total);
+    document.getElementById(`total_${page}`).innerText = `Total is ${total_price} kr`
 }
 
 //ButtonLogic 
@@ -52,9 +53,8 @@ function addItem(itemName, price, page) {
 }
 
 // Removes one item from cart_list (with itemName)
-function removeItem(itemName, price) {
-    removeFromPrice(price);
-    updatePrice();
+function removeItem(itemName, price, page) {
+    removeFromPrice(price, page);
 
     const cartList = document.getElementById("cart_list");
     const items = cartList.querySelectorAll("li");
