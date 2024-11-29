@@ -1,36 +1,30 @@
+//ButtonLogic 
 
 
-
-
-//ButtonLogic -
-
-//When button + is pushed - the product should be added to cart list. 
-
-//This function adds new listItem
+//This function adds new CartItem in cart_list (with itemName)
 function addItem(itemName) {
-    const cart_list = document.getElementById("cart_list");
+    const cartList = document.getElementById("cart_list");
     const newListItem = document.createElement("li");
     newListItem.textContent = itemName;
-    cart_list.appendChild(newListItem);
+    cartList.appendChild(newListItem);
 }
-//When button CART is pushed - You should go to checkout
 
-function goToCheckout (){}
+// Removes one item from cart_list (with itemName)
+function removeItem (itemName){
+    const cartList = document.getElementById("cart_list");
+    const items = cartList.querySelectorAll ("li");
 
-//When button TA BORT is pushed - You will remove one item
-
-function removeItem (){
-   
+    for (let i = 0; i < items.length; i++) {
+        if (items[i].textContent == itemName) {
+            cartList.removeChild(items[i]);            
+        }     
+        break;   
+    }    
     
 }
 
-//When button LÄGG TILL is pushed - You will add one of the same item 
 
-//function addItem(){} //Could this work as the first one?
-
-
-// When button Swish is pushed - You will get something that says "You have paid" and then removes everything from cart and goes to first page. 
-//This function clears the list by ID: "items_list".
+//This function tells you that you have paid, clears the list by ID: "cart_list".
 function payItems(){
     alert ("Tack för att du har handlat hos oss!");
     const cart_list = document.getElementById("cart_list");
@@ -38,6 +32,3 @@ function payItems(){
 }
 
 
-//Might need a button GÅ TILLBAKA - to go from checkout to mainpage.
-
-function goToMainpage (){}
