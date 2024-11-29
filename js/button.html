@@ -1,3 +1,5 @@
+<!--This is a testing page for buttons and links, can be removed in the end-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,13 +16,15 @@
         <li></li>
     </ol>
 
-    <button id="test" onclick="addItem('Redbull')">+</button>
-    <button onclick="payItems()"></button>
-    <button onclick="removeItem('Banan')">Tabort</button>
-    <button onclick="goToCheckout()">Kundkorgen</button>
-    <button onclick="goToMainPage()">Första Sidan</button>
+    <ol id="cart_list"></ol>
 
-    <a href="../index.html">KLICKA HÄR JU</a>
+    <button id="test" onclick="addItem('Redbull')">Lägg till en Redbull</button>
+    <button onclick="payItems()">BETALA</button>
+    <button onclick="removeItem('Redbull')">Tabort en Redbull</button>
+   
+
+    <a href="../index.html">Gå till Första Sidan</a>
+    <a href="../html/checkout.html">Gå till Kundkorgen</a>
 
   <script src="scripts.js"></script>  
 </body>
