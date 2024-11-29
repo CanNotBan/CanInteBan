@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/checkout.css">
     <link rel="stylesheet" href="../css/header.css">
+    
 </head>
 
 <body>
@@ -30,9 +31,10 @@
     <main>
         <h1>Checkout</h1>
         <h2>Din varukorg innehåller:</h2>
-        <ol class="cart_list"></ol>
+        <ol id="cart_list"></ol>
     </main>
     <button><a href="/index.html">Handla mer</a></button>
+    <button onclick="removeItem('Celsius')">Ta bort Celsius</button>
     <button onclick="payItems()">Betala</button>
     <footer></footer>
 </body>
