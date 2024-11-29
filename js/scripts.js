@@ -15,7 +15,7 @@ function addItem(itemName) {
 }
 //When button CART is pushed - You should go to checkout
 
-function goToCheckout (){}
+// function goToCheckout (){} - Isnt needed - it will be a link.
 
 //When button TA BORT is pushed - You will remove one item
 
@@ -40,4 +40,4 @@ function payItems(){
 
 //Might need a button GÅ TILLBAKA - to go from checkout to mainpage.
 
-function goToMainpage (){}
+//function goToMainpage (){} //Behövs inte? Kan vara en länk bara?
