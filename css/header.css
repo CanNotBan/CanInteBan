@@ -11,13 +11,16 @@ header{
     z-index: 50;
 }
 
+.hidden-spacer {
+    width: 60px;
+}
+
 .header-icons{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    width: 65px;
-
+    width: 60px;
 }
 
 .user-icon,
