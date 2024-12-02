@@ -1,7 +1,0 @@
-
-Repo:
-https://github.com/CanNotBan/CanInteBan
-
-Kanban board:
-https://github.com/users/MMTTSEC/projects/2
-
