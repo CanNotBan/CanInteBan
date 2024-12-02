@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>CanBan</title>
+    <script src="js/scripts.js" defer></script>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <div class="hidden-spacer"></div>
+        Kiosk TUC Linköping
+        <div class="header-icons">
+            <div class="question-icon"><i class="fa-solid fa-question"></i></div>
+            <div class="user-icon"><i class="fa-solid fa-user fa-lg"></i></div>
+        </div>
+    </header>
+    <main>
+        <h1 class="text-center">Dryck</h1>
+
+        <div class="outer-container">
+            <div class="container">
+                <div class="item box-shadow">
+                    <div class="image"></div>
+                    <div class="text-center">Celsius</div>
+                    <div>inklusive pant</div>
+                    <div class="pris"><span id="celcius_price">30.00</span> kr</div>
+                    <button onclick="addItem('Celsius', 30, 'index')">+</button>
+                </div>
+                <div class="item box-shadow">
+                    <div class="image"></div>
+                    <div class="text-center">Coca Cola</div>
+                    <div>inklusive pant</div>
+                    <div class="pris"><span id="cola_price">17.00</span> kr</div>
+                    <button onclick="addItem('Coca Cola', 17, 'index')">+</button>
+                </div>
+                <div class="item box-shadow">
+                    <div class="image"></div>
+                    <div class="text-center">Coca Cola Zero</div>
+                    <div>inklusive pant</div>
+                    <div class="pris"><span id="cola_zero_price">17.00</span> kr</div>
+                    <button onclick="addItem('Coca Cola Zero', 17, 'index')">+</button>
+                </div>
+                <div class="item box-shadow">
+                    <div class="image"></div>
+                    <div class="text-center">Julmust/Julmust zero</div>
+                    <div>inklusive pant</div>
+                    <div class="pris"><span id="julmust_price">17.00</span> kr</div>
+                    <button onclick="addItem('Julmust/Julmust zero', 17, 'index')">+</button>
+                </div>
+                <div class="item box-shadow">
+                    <div class="image"></div>
+                    <div class="text-center">Latitude 65</div>
+                    <div>inklusive pant</div>
+                    <div class="pris"><span id="latitude_price">30.00</span> kr</div>
+                    <button onclick="addItem('Latitude 65', 30, 'index')">+</button>
+                </div>
+                <div class="item box-shadow">
+                    <div class="image"></div>
+                    <div class="text-center">Loka/Ramlösa</div>
+                    <div>inklusive pant</div>
+                    <div class="pris"><span id="loka_price">17.00</span> kr</div>
+                    <button onclick="addItem('Loka/Ramlösa', 17, 'index')">+</button>
+                </div>
+                <div class="item box-shadow">
+                    <div class="image"></div>
+                    <div class="text-center">Nocco</div>
+                    <div>inklusive pant</div>
+                    <div class="pris"><span id="nocco_price">30.00</span> kr</div>
+                    <button onclick="addItem('Nocco', 30, 'index')">+</button>
+                </div>
+                <div class="item box-shadow">
+                    <div class="image"></div>
+                    <div class="text-center">Pago</div>
+                    <div>inklusive pant</div>
+                    <div class="pris"><span id="pago_price">25.00</span> kr</div>
+                    <button onclick="addItem('Pago', 25, 'index')">+</button>
+                </div>
+                <div class="item box-shadow">
+                    <div class="image"></div>
+                    <div class="text-center">Pepsi Max</div>
+                    <div>inklusive pant</div>
+                    <div class="pris"><span id="pepsi_price">17.00</span> kr</div>
+                    <button onclick="addItem('Pepsi Max', 17, 'index')">+</button>
+                </div>
+
+                <div id="total_index">Total price is: kr</div> 
+                <button><a href="html/checkout.html">Kundkorgen</a></button>
+                
+            </div>
+        </div>
+        
+        
+    </main>
+        <footer class="footer">
+            <h2>Kiosk TUC Linköping</h2>
+            <div class="footer-container">
+              <div class="footer-list">
+                <h3>Vanliga Frågor</h3>
+                <ul>
+                  <li>
+                    <a href="/"> Startsidan </a>
+                  </li>
+                  <li>
+                    <a href="/"> Om Oss </a>
+                  </li>
+                  <li>
+                    <a href="/"> Produkter </a>
+                  </li>
+                  <li>
+                    <a href="/"> F.A.Q </a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h3>Frakt och leverans</h3>
+                <ul>
+                  <li>
+                    <a href="/"> Gratis Leverans </a>
+                  </li>
+                  <li>
+                    <a href="/"> Gratis Retur </a>
+                  </li>
+                  <li>
+                    <a href="/"> Leveranstid </a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h3>Våra tjänster</h3>
+                <ul>
+                  <li>
+                    <a href="/"> Jobb </a>
+                  </li>
+                  <li>
+                    <a href="/"> Presentkort </a>
+                  </li>
+                  <li>
+                    <a href="/"> Prenumerera </a>
+                  </li>
+                  <li>
+                    <a href="/"> Mer information </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="copy-right">
+              <p>&copy; All Rights Reservered</p>
+              <ul>
+                <li>
+                  <a href="/"> Facebook </a>
+                </li>
+                <li>
+                  <a href="/"> Instagram </a>
+                </li>
+                <li>
+                  <a href="/"> Twitter </a>
+                </li>
+              </ul>
+            </div>
+          </footer>
+</body>
+</html>

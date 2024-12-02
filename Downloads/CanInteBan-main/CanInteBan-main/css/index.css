@@ -1,0 +1,182 @@
+.image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    /* Placeholder images, can be removed */
+    background-image: url('https://media.istockphoto.com/id/1147544807/sv/vektor/ingen-miniatyr-bild-vektor-grafik.jpg?s=612x612&w=0&k=20&c=RWp5ECPYkIEO8J3zxyvsc4Lrf68NiLDybtPHix_QI1I='); 
+    background-size: cover;   
+    background-position: center;
+}
+
+.outer-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    background-color: #f8f8f8; 
+}
+
+.container {
+    max-width: 1100px;
+    width: 100%;
+    min-width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.item {
+    position: relative;
+    margin: 10px;
+    height: 340px;
+    max-width: 320px;
+    width: 100%;
+    padding: 10px;
+    transition: transform 0.3s;
+}
+
+.item:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+/* Fill the whole screen when only 1 product wide */
+@media (max-width: 769px) {
+    .item {
+        max-width: 500px;
+    }
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; 
+    justify-content: center;
+    max-width: 1100px;
+    padding-top: 20px;
+}
+
+
+.item {
+    background-color: white;
+    border-radius: 10px;  
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.item:hover {
+    transform: scale(1.05);  
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+h1.text-center {
+    font-size: 2em;
+    color: #333;
+    padding: 40px;
+}
+
+.pris {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #007BFF;  
+    margin-top: 10px;
+}
+
+.text-center {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+button {
+    background-color: #28a745;  
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #218838;  
+}
+
+button a {
+    color: white;  
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .item {
+        width: 80%;  
+    }
+}
+
+
+.item .text-center {
+    font-size: 1.4em;  
+    font-weight: bold;  
+    color: #333;  
+    margin-bottom: 5px;  
+}
+
+.item .text-center + div {
+    font-size: 1em; 
+    color: #666;  
+    margin-bottom: 10px; 
+}
+
+.item .text-center {
+    padding-bottom: 5px;
+    border-bottom: 2px solid #eee;  
+    margin-bottom: 10px;
+}
+
+.item .text-center + div {
+    padding-bottom: 5px;
+    color: #888; 
+}
+
+
+.pris {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #007BFF;
+}
+
+
+.item button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
+
+
+.item button:hover {
+    background-color: #218838; 
+}
+
+
+
