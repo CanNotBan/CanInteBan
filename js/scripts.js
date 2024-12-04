@@ -79,10 +79,20 @@ function removeItem(itemName, price, page) {
     }
 }
 
+function showPopup () {
+    const payPopup = document.getElementById ('payed-popup')
+    payPopup.style.display = 'block';
+    setTimeout(() => { 
+        payPopup.style.display ='none'
+        window.location.href = "../index.html";
+    }, 3000);
+
+}
+
 
 //This function tells you that you have paid, clears the list by ID: "cart_list".
 function payItems() {
-    alert("Tack för att du har handlat hos oss!");
+    showPopup()
     const cart_list = document.getElementById("cart_list");
     cart_list.innerHTML = "";
     localStorage.removeItem('cart')
