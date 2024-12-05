@@ -173,8 +173,6 @@ button a {
     transition: background-color 0.3s;
     text-decoration: none;
 }
-
-
 .item button:hover {
     background-color: #218838; 
 }
