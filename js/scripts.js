@@ -32,9 +32,7 @@ function loadTotal(page) {
     total_price = parseInt(saved_total);
     document.getElementById(`total_${page}`).innerText = `Total is ${total_price} kr`
 }
-
 //ButtonLogic 
-
 
 //This function adds new CartItem in cart_list (with itemName)
 function addItem(itemName, price, page) {
@@ -47,9 +45,29 @@ function addItem(itemName, price, page) {
 
     const cartList = document.getElementById("cart_list");
     const newListItem = document.createElement("li");
-    newListItem.textContent = itemName;
-    cartList.appendChild(newListItem);
 
+   //
+   const itemText = document.createTextNode(itemName);
+
+// X button
+   const removeButton = document.createElement("button");
+   removeButton.textContent = "X";
+   removeButton.style.marginLeft = "10px";
+   removeButton.style.backgroundColor = "transparent";
+   removeButton.style.color = "black";
+   removeButton.style.border = "none";
+   removeButton.style.borderRadius = "5px";
+   removeButton.style.cursor = "pointer";
+
+//
+removeButton.addEventListener("click", () => {
+    removeItem(item, price, 'checkout');
+});
+//
+newListItem.appendChild(itemText);
+newListItem.appendChild(removeButton);
+
+cartList.appendChild(newListItem);
 }
 
 // Removes one item from cart_list (with itemName)
@@ -61,7 +79,7 @@ function removeItem(itemName, price, page) {
 
 
     for (let i = 0; i < items.length; i++) {
-        if (items[i].textContent === itemName) {
+        if (items[i].firstChild.textContent.trim() === itemName) {
 
             cartList.removeChild(items[i]);
 
@@ -70,7 +88,6 @@ function removeItem(itemName, price, page) {
 
             cart = cart.filter(item => item !== itemName);
 
-
             localStorage.setItem('cart', JSON.stringify(cart));
 
 
@@ -78,7 +95,6 @@ function removeItem(itemName, price, page) {
         }
     }
 }
-
 
 //This function tells you that you have paid, clears the list by ID: "cart_list".
 function payItems() {
@@ -95,17 +111,36 @@ function payItems() {
 window.onload = function () {
 
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-
     const cartList = document.getElementById("cart_list");
 
 
     cart.forEach(item => {
         const newListItem = document.createElement("li");
-        newListItem.textContent = item;
+
+        //
+        const itemText = document.createTextNode(item);
+
+        // X Button
+        const removeButton = document.createElement("button");
+        removeButton.textContent = "X";
+        removeButton.style.marginLeft = "10px";
+        removeButton.style.backgroundColor = "transparent";
+        removeButton.style.color = "black";
+        removeButton.style.border = "none";
+        removeButton.style.borderRadius = "5px";
+        removeButton.style.cursor = "pointer";
+
+        removeButton.addEventListener("click", () => {
+            removeItem(item, 0, 'checkout');
+        });
+
+        newListItem.appendChild(itemText);
+        newListItem.appendChild(removeButton);
+
         cartList.appendChild(newListItem);
     });
-}
+};
+
 
 //function that sets the cart-price with localstorage on the page that the user is on
 function start() {
