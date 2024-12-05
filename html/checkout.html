@@ -19,17 +19,14 @@
 </head>
 
 <body>
-    <header>
-        <!-- The two empty divs are used to properly center the text and the icons. Do Not Remove -->
-        <div></div>
-        <div></div>
-        Kiosk TUC Linköping
-        <div class="header-icons">
-            <div class="question-icon"><i class="fa-solid fa-question"></i></div>
-            <div class="user-icon"><i class="fa-solid fa-user fa-lg"></i></div>
-        </div>
-    </header>
-    
+  <header>
+    <div class="hidden-spacer"></div>
+    Kiosk TUC Linköping
+    <div class="header-icons">
+        <div class="question-icon"><i class="fa-solid fa-question"></i></div>
+        <div class="user-icon"><i class="fa-solid fa-user fa-lg"></i></div>
+    </div>
+</header>
     <main>
         <h1>Checkout</h1>
         <h2>Din varukorg innehåller:</h2>
@@ -38,8 +35,12 @@
     </main>
     <button><a href="../index.html">Handla mer</a></button>
     <button onclick="payItems()">Betala</button>
-
-
+    
+    <!--Pop-up You have paid-->
+    <div id="payed-popup">
+        <h2>Tack för att du har handlat hos oss!</h2>
+        <p>Du kommer strax tillbaka till startsidan</p>
+    </div>
     <footer class="footer">
         <h2>Kiosk TUC Linköping</h2>
 

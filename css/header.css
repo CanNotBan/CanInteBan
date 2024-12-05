@@ -7,7 +7,7 @@ header{
     color: white;
     height: 40px;
     position: sticky;
-    top: 1px;
+    top: 0px;
     z-index: 50;
 }
 

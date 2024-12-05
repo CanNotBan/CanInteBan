@@ -4,12 +4,13 @@
     height: 100%;
     top: 0;
     left: 0;
-    z-index: -1;
-
-    /* Placeholder images, can be removed */
-    background-image: url('https://media.istockphoto.com/id/1147544807/sv/vektor/ingen-miniatyr-bild-vektor-grafik.jpg?s=612x612&w=0&k=20&c=RWp5ECPYkIEO8J3zxyvsc4Lrf68NiLDybtPHix_QI1I='); 
+    background-image: var(--initial-image);
     background-size: cover;   
     background-position: center;
+}
+
+.image:hover {
+    background-image: var(--hover-image);
 }
 
 .outer-container {

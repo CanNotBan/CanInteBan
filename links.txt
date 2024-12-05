@@ -3,5 +3,7 @@ Repo:
 https://github.com/CanNotBan/CanInteBan
 
 Kanban board:
-https://github.com/users/MMTTSEC/projects/2
+https://github.com/orgs/CanNotBan/projects/10
 
+Server host:
+http://158.220.114.229/
