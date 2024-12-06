@@ -32,42 +32,41 @@ function loadTotal(page) {
     total_price = parseInt(saved_total);
     document.getElementById(`total_${page}`).innerText = `Total is ${total_price} kr`
 }
+
 //ButtonLogic 
 
-//This function adds new CartItem in cart_list (with itemName)
+
 function addItem(itemName, price, page) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
+    
     addToPrice(price, page);
-    cart.push(itemName);
-
+    cart.push({ name: itemName, price: price }); 
+    
     localStorage.setItem('cart', JSON.stringify(cart));
 
     const cartList = document.getElementById("cart_list");
     const newListItem = document.createElement("li");
 
-   //
-   const itemText = document.createTextNode(itemName);
+    const itemText = document.createTextNode(`${itemName} - ${price} kr`);
 
-// X button
-   const removeButton = document.createElement("button");
-   removeButton.textContent = "X";
-   removeButton.style.marginLeft = "10px";
-   removeButton.style.backgroundColor = "transparent";
-   removeButton.style.color = "black";
-   removeButton.style.border = "none";
-   removeButton.style.borderRadius = "5px";
-   removeButton.style.cursor = "pointer";
+    // X button
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "x";
+    removeButton.style.marginLeft = "10px";
+    removeButton.style.backgroundColor = "transparent";
+    removeButton.style.color = "black";
+    removeButton.style.border = "none";
+    removeButton.style.borderRadius = "5px";
+    removeButton.style.cursor = "pointer";
 
-//
-removeButton.addEventListener("click", () => {
-    removeItem(item, price, 'checkout');
-});
-//
-newListItem.appendChild(itemText);
-newListItem.appendChild(removeButton);
+    removeButton.addEventListener("click", () => {
+        removeItem(itemName, price, 'checkout'); 
+    });
 
-cartList.appendChild(newListItem);
+    newListItem.appendChild(itemText);
+    newListItem.appendChild(removeButton);
+
+    cartList.appendChild(newListItem);
 }
 
 // Removes one item from cart_list (with itemName)
@@ -77,25 +76,24 @@ function removeItem(itemName, price, page) {
     const cartList = document.getElementById("cart_list");
     const items = cartList.querySelectorAll("li");
 
-
     for (let i = 0; i < items.length; i++) {
-        if (items[i].firstChild.textContent.trim() === itemName) {
-
+        if (items[i].firstChild.textContent.includes(`${itemName} - ${price} kr`)) {
             cartList.removeChild(items[i]);
-
 
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-            cart = cart.filter(item => item !== itemName);
+            // Remove the correct item from the cart array
+            const itemIndex = cart.findIndex(item => item.name === itemName && item.price == price);
+            if (itemIndex > -1) {
+                cart.splice(itemIndex, 1);
+            }
 
             localStorage.setItem('cart', JSON.stringify(cart));
-
 
             break;
         }
     }
 }
-
 
 function showPopup () {
     const payPopup = document.getElementById ('payed-popup')
@@ -106,6 +104,7 @@ function showPopup () {
     }, 3000);
 
 }
+
 
 //This function tells you that you have paid, clears the list by ID: "cart_list".
 function payItems() {
@@ -120,20 +119,17 @@ function payItems() {
 
 //This makes it possible for cartlist in checkout.html to find what we added in index.html through localstorage. 
 window.onload = function () {
-
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const cartList = document.getElementById("cart_list");
-
 
     cart.forEach(item => {
         const newListItem = document.createElement("li");
 
-        //
-        const itemText = document.createTextNode(item);
+        const itemText = document.createTextNode(`${item.name} - ${item.price} kr`);
 
-        // X Button
+        // X button
         const removeButton = document.createElement("button");
-        removeButton.textContent = "X";
+        removeButton.textContent = "x";
         removeButton.style.marginLeft = "10px";
         removeButton.style.backgroundColor = "transparent";
         removeButton.style.color = "black";
@@ -142,16 +138,16 @@ window.onload = function () {
         removeButton.style.cursor = "pointer";
 
         removeButton.addEventListener("click", () => {
-            removeItem(item, 0, 'checkout');
+            removeItem(item.name, item.price, 'checkout'); 
         });
 
         newListItem.appendChild(itemText);
         newListItem.appendChild(removeButton);
 
         cartList.appendChild(newListItem);
+
     });
 };
-
 
 //function that sets the cart-price with localstorage on the page that the user is on
 function start() {

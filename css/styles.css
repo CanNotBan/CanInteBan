@@ -31,23 +31,24 @@ a:visited {
 .text-center {
     text-align: center;
 }
-
-
 .footer {
-  display: flex;
-  flex-direction: column;
-  align-content: space-around;
-  gap: 1rem;
-
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    gap: 1rem;
 }
 .footer h3 {
 font-size: 1rem;
 display: flex;
 justify-content: center;
 }
-
-.footer p {
-  font-size: 1rem;
-  display: flex;
-  justify-content: center;
+footer{
+    margin-top: 20px;
+    padding: 20px;
+    text-align: center;
+    background-color: #f1f1f1;
+}
+.footer-container,
+.copy.right {
+    color: 333;
 }
