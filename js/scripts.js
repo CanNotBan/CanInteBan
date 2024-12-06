@@ -29,27 +29,45 @@ function saveTotal() {
 //function to load the current total from local-storage
 function loadTotal(page) {
     let saved_total = localStorage.getItem('total_saved');
-    total_price = parseInt(saved_total);
-    document.getElementById(`total_${page}`).innerText = `Total is ${total_price} kr`
+
+    total_price = saved_total ?  parseInt(saved_total): 0;
+    document.getElementById(`total_${page}`).innerText = `Total is ${total_price} kr`;
 }
 
 //ButtonLogic 
 
 
-//This function adds new CartItem in cart_list (with itemName)
 function addItem(itemName, price, page) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
+    
     addToPrice(price, page);
-    cart.push(itemName);
-
+    cart.push({ name: itemName, price: price }); 
+    
     localStorage.setItem('cart', JSON.stringify(cart));
 
     const cartList = document.getElementById("cart_list");
     const newListItem = document.createElement("li");
-    newListItem.textContent = itemName;
-    cartList.appendChild(newListItem);
 
+    const itemText = document.createTextNode(`${itemName} - ${price} kr`);
+
+    // X button
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "x";
+    removeButton.style.marginLeft = "10px";
+    removeButton.style.backgroundColor = "transparent";
+    removeButton.style.color = "black";
+    removeButton.style.border = "none";
+    removeButton.style.borderRadius = "5px";
+    removeButton.style.cursor = "pointer";
+
+    removeButton.addEventListener("click", () => {
+        removeItem(itemName, price, 'checkout'); 
+    });
+
+    newListItem.appendChild(itemText);
+    newListItem.appendChild(removeButton);
+
+    cartList.appendChild(newListItem);
 }
 
 // Removes one item from cart_list (with itemName)
@@ -59,20 +77,19 @@ function removeItem(itemName, price, page) {
     const cartList = document.getElementById("cart_list");
     const items = cartList.querySelectorAll("li");
 
-
     for (let i = 0; i < items.length; i++) {
-        if (items[i].textContent === itemName) {
-
+        if (items[i].firstChild.textContent.includes(`${itemName} - ${price} kr`)) {
             cartList.removeChild(items[i]);
-
 
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-            cart = cart.filter(item => item !== itemName);
-
+            // Remove the correct item from the cart array
+            const itemIndex = cart.findIndex(item => item.name === itemName && item.price == price);
+            if (itemIndex > -1) {
+                cart.splice(itemIndex, 1);
+            }
 
             localStorage.setItem('cart', JSON.stringify(cart));
-
 
             break;
         }
@@ -103,19 +120,35 @@ function payItems() {
 
 //This makes it possible for cartlist in checkout.html to find what we added in index.html through localstorage. 
 window.onload = function () {
-
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-
     const cartList = document.getElementById("cart_list");
-
 
     cart.forEach(item => {
         const newListItem = document.createElement("li");
-        newListItem.textContent = item;
+
+        const itemText = document.createTextNode(`${item.name} - ${item.price} kr`);
+
+        // X button
+        const removeButton = document.createElement("button");
+        removeButton.textContent = "x";
+        removeButton.style.marginLeft = "10px";
+        removeButton.style.backgroundColor = "transparent";
+        removeButton.style.color = "black";
+        removeButton.style.border = "none";
+        removeButton.style.borderRadius = "5px";
+        removeButton.style.cursor = "pointer";
+
+        removeButton.addEventListener("click", () => {
+            removeItem(item.name, item.price, 'checkout'); 
+        });
+
+        newListItem.appendChild(itemText);
+        newListItem.appendChild(removeButton);
+
         cartList.appendChild(newListItem);
+
     });
-}
+};
 
 //function that sets the cart-price with localstorage on the page that the user is on
 function start() {
