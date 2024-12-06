@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Roboto', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+h1{
+    text-align: center;
+}
+h4{
+    text-align: center;
+}
+main {
+    margin-bottom: 50px;
+    flex: 1;
+}
+#total_checkout{
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 20px;
+    border-top: 1px solid #a4a1a1;
+}
+#cart_list li {
+    border-bottom: 1px solid #c4c4c4; 
+    padding: 10px 0; 
+    list-style: none; 
+}
+
+#cart_list li:last-child {
+    border-bottom: none; 
+}
+.button-container{
+    margin-bottom: 20px;
+}
+button {
+        background-color: #28a745;  
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    button:hover {
+        background-color: #218838;  
+    }
+    
+    button a {
+        color: white;  
+        text-decoration: none;
+    } 
+    .button-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    #payed-popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        z-index: 1000;
+        width: 80%; /* Ta upp halva bredden */
+        max-width: 500px;
+    }
+
+    #payed-popup h2 {
+        padding-bottom: 10px;
+
+    }
+    footer{
+        margin-top: 20px;
+        padding: 20px;
+        text-align: center;
+        background-color: #f1f1f1;
+    }
+    .footer-container,
+    .copy.right {
+        color: 333;
+    }

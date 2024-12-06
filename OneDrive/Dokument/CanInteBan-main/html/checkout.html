@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CanBan</title>
+
+    <link rel="icon" type="image/x-icon" href="../CanInteBan/favicon.ico">
+    <script src="../js/scripts.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/checkout.css">
+    <link rel="stylesheet" href="../css/header.css">
+</head>
+
+<body>
+    <header>
+        <!-- The two empty divs are used to properly center the text and the icons. Do Not Remove -->
+        <div></div>
+        Kiosk TUC Linköping
+        <div class="header-icons">
+            <div class="question-icon"><i class="fa-solid fa-question"></i></div>
+            <div class="user-icon"><i class="fa-solid fa-user fa-lg"></i></div>
+        </div>
+    </header>
+
+    <main>
+        <h1>Checkout</h1>
+        <h4>Din varukorg innehåller:</h2>
+        <ol id="cart_list"></ol>
+    </main>
+
+    <div id="total_checkout">Total is: 0 kr</div>
+
+    <div class="button-container">
+    <button><a href="../index.html">Handla mer</a></button>
+    <button onclick="payItems()">Betala</button>
+    </div>
+
+
+    <!--Pop-up You have paid-->
+    <div id="payed-popup">
+        <h2>Tack för att du har handlat hos oss!</h2>
+        <p>Du kommer strax tillbaka till startsidan</p>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <h3>Kiosk TUC Linköping</h3>
+      </div>
+      <div class="copy-right">
+        <p>&copy; All Rights Reservered</p>
+      </div>
+    </footer>
+</body>
+</html>
