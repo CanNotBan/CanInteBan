@@ -29,8 +29,9 @@ function saveTotal() {
 //function to load the current total from local-storage
 function loadTotal(page) {
     let saved_total = localStorage.getItem('total_saved');
-    total_price = parseInt(saved_total);
-    document.getElementById(`total_${page}`).innerText = `Total is ${total_price} kr`
+
+    total_price = saved_total ?  parseInt(saved_total): 0;
+    document.getElementById(`total_${page}`).innerText = `Total is ${total_price} kr`;
 }
 
 //ButtonLogic 
