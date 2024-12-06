@@ -160,10 +160,6 @@ button a {
 
 
 .item button {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background-color: #28a745;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -173,8 +169,45 @@ button a {
     transition: background-color 0.3s;
     text-decoration: none;
 }
-.item button:hover {
+
+
+.plusbutton {
+    background-color: #28a745; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    position: absolute; 
+    bottom: 10px; 
+    right: 10px; 
+}
+
+.plusbutton:hover {
     background-color: #218838; 
+}
+
+
+.minusbutton {
+    background-color: #dc3545; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    position: absolute; 
+    bottom: 10px; 
+    right: 70px; 
+}
+
+.minusbutton:hover {
+    background-color: #c82333; 
 }
 
 
