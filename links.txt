@@ -7,3 +7,6 @@ https://github.com/orgs/CanNotBan/projects/10
 
 Server host:
 http://158.220.114.229/
+
+Status Page:
+http://158.220.114.229:3001/status/caninteban
