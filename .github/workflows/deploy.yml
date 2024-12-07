@@ -1,27 +1,69 @@
-name: Deploy to VPS
+
+# Triggers on merge/push into main
 on:
   push:
     branches:
-      - main
+      - jesper-2
+  pull_request:
+    branches:
+      - jesper-2
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
+
+  # Validate all .html files
+  HTML-validate:
+      name: Validate all .html files
+      runs-on: ubuntu-latest
+
+      steps:
+      - name: Checkout code
         uses: actions/checkout@v3
-      
-      - name: SSH into VPS and deploy
-        uses: appleboy/ssh-action@v0.1.4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
         with:
-          host: ${{ secrets.VPS_IP }}
-          username: root
-          key: ${{ secrets.VPS_SSH_KEY }}
-          script: |
-            cd /root/temp/CanInteBan
-            
-            git pull origin main
-            docker build -t my-app .
-            
-            docker rm -f my-app 
-            docker run -d --name my-app -p 80:80 my-app
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: |
+          npm install htmlhint w3c-html-validator
+
+      - name: Run HTMLHint
+        run: npx htmlhint '**/*.html'
+
+      - name: Run W3C Validator
+        run: npx w3c-html-validator '**/*.html'
+  
+  # Validate all .js files
+  JavaScript-linter:
+    name: Validate all .js files
+    runs-on: ubuntu-latest
+    needs: HTML-validate
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install ESLint
+        run: |
+          npm install eslint@8.10.0
+
+      - name: Run ESLint
+        env:
+          SARIF_ESLINT_IGNORE_SUPPRESSED: "true"
+        run: npx eslint .
+          --config .eslintrc.js
+          --ext .js,.jsx,.ts,.tsx
+        continue-on-error: false
+
+  # Mock deploy
+  deploy:
+    name: Deploy to server
+    runs-on: ubuntu-latest
+    needs: [HTML-validate, JavaScript-linter]
+
+    steps:
+      - name: Log a message
+        run: echo "This is a log message"
