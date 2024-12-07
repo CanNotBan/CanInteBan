@@ -22,7 +22,7 @@ function updatePrice(page) {
 
 //funtion that saves the current total price to a localstorage-variable
 function saveTotal() {
-    localStorage.setItem('total_saved', total_price)
+    localStorage.setItem('total_saved', total_price);
 }
 
 
@@ -97,10 +97,10 @@ function removeItem(itemName, price, page) {
 }
 
 function showPopup () {
-    const payPopup = document.getElementById ('payed-popup')
+    const payPopup = document.getElementById ('payed-popup');
     payPopup.style.display = 'block';
     setTimeout(() => { 
-        payPopup.style.display ='none'
+        payPopup.style.display ='none';
         window.location.href = "../index.html";
     }, 3000);
 
@@ -109,10 +109,10 @@ function showPopup () {
 
 //This function tells you that you have paid, clears the list by ID: "cart_list".
 function payItems() {
-    showPopup()
+    showPopup();
     const cart_list = document.getElementById("cart_list");
     cart_list.innerHTML = "";
-    localStorage.removeItem('cart')
+    localStorage.removeItem('cart');
     total_price = 0;
     saveTotal();
     start();
