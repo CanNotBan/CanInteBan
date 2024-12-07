@@ -8,7 +8,7 @@
 
     <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
     <script src="../js/scripts.js" defer></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -30,14 +30,15 @@
 
     <main>
         <h1>Checkout</h1>
-        <h4>Din varukorg innehåller:</h2>
+        <h4>Din varukorg innehåller:</h4>
         <ol id="cart_list"></ol>
     </main>
 
     <div id="total_checkout">Total is: 0 kr</div>
 
     <div class="button-container">
-    <button><a href="../index.html">Handla mer</a></button>
+    <button onclick="window.location.href='../index.html'">Kundkorgen</button>
+
     <button onclick="payItems()">Betala</button>
     </div>
 
