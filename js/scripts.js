@@ -52,13 +52,16 @@ function removeItem(itemName, price, page) {
     if (existingItem) {
         if (existingItem.quantity > 1) {
             existingItem.quantity -= 1;
+           
         } else {
             cart = cart.filter(item => item.name !== itemName);
+          
         }
-    }
 
-    removeFromPrice(price, page);
+          removeFromPrice(price, page);
     localStorage.setItem('cart', JSON.stringify(cart));
+    }
+    
     renderCartList();
 }
 
