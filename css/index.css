@@ -212,3 +212,66 @@ button a {
 
 
 
+
+
+
+/* Flexbox-container för att centrera elementen */
+.total-container {
+    display: flex; /* Flexbox-layout */
+    justify-content: center; /* Centrerar elementen horisontellt */
+    align-items: center; /* Centrerar elementen vertikalt */
+    gap: 20px; /* Mellanrum mellan totalpris och knapp */
+    margin: 50px auto; /* Utrymme runt och centrering av hela raden */
+    max-width: 600px; /* Begränsar bredden */
+}
+
+/* Styling för totalpris */
+#total_index {
+    text-align: center; /* Centrerar texten */
+    padding: 15px 20px; /* Utrymme runt texten */
+    font-size: 1.5em; /* Gör texten stor */
+    font-weight: bold;
+    border-radius: 10px; /* Rundade hörn */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Lägger till en skugga */
+    text-transform: uppercase; /* Versaler */
+    letter-spacing: 1px; /* Lite bokstavsmellanrum */
+    transition: all 0.3s ease-in-out;
+    background-color: #f8f9fa;
+    color: #333;
+    border: 2px solid #007BFF;
+    flex: 0 1 auto; /* Gör så att totalpris inte tar upp hela utrymmet */
+}
+
+/* Hover-effekt för totalpris */
+#total_index:hover {
+    background-color: #007BFF;
+    color: #fff;
+    border-color: #0056b3;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+/* Styling för Kundkorg-knappen */
+.cart-button {
+    text-align: center; /* Centrerar texten */
+    padding: 15px 20px; /* Utrymme runt texten */
+    font-size: 1.5em; /* Gör texten stor */
+    font-weight: bold;
+    border-radius: 10px; /* Rundade hörn */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Lägger till en skugga */
+    text-transform: uppercase; /* Versaler */
+    letter-spacing: 1px; /* Lite bokstavsmellanrum */
+    transition: all 0.3s ease-in-out;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    flex: 1; /* Låter kundkorg-knappen ta upp lika mycket utrymme */
+}
+
+/* Hover-effekt för Kundkorg-knappen */
+.cart-button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
