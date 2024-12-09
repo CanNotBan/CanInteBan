@@ -18,16 +18,20 @@
 </head>
 
 <body>
-    <header>
-        <!-- The two empty divs are used to properly center the text and the icons. Do Not Remove -->
-        <div></div>
-        Kiosk TUC Linköping
-        <div class="header-icons">
-            <div class="question-icon"><i class="fa-solid fa-question"></i></div>
-            <div class="user-icon"><i class="fa-solid fa-user fa-lg"></i></div>
-        </div>
-    </header>
-
+  <div class="sidebar">
+    <div class="x-icon"><i class="fa-solid fa-x" onclick="hideSidebar()"></i></div>
+    <div class="sidebar-bar"><div>Profil</div><i class="fa-solid fa-angle-down"></i></div>
+    <div class="sidebar-bar"><div>Kundkorgen</div><i class="fa-solid fa-angle-down"></i></div>
+    <div class="sidebar-bar"><div>Orderhistorik</div> <i class="fa-solid fa-angle-down"></i></div>
+  </div>
+  <header>
+    <div class="hidden-spacer"></div>
+    Kiosk TUC Linköping
+    <div class="header-icons">
+      <div class="question-icon"><i class="fa-solid fa-question"></i></div>
+      <div class="user-icon" onclick="displaySidebar()"><i class="fa-solid fa-user fa-lg"></i></div>
+    </div>
+  </header>
     <main>
         <h1>Checkout:</h1>
         <ol id="cart_list"></ol>
