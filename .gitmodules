@@ -1,0 +1,4 @@
+[submodule ".gitmodules"]
+    path = .gitmodules
+    url = git://github.com/CanNotBan/CanInteBan.git
+
