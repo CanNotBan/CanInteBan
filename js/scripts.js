@@ -1,21 +1,18 @@
 //pricing
 let total_price = 0;
 
-//function to add the price to the total, to be used when adding items to cart.
 function addToPrice(price, page) {
     total_price = total_price + price;
     updatePrice(page);
     saveTotal();
 }
 
-//function that removes the price from total, to be used when removing items
 function removeFromPrice(price, page) {
     total_price = total_price - price;
     updatePrice(page);
     saveTotal();
 }
 
-//function to dynamically update the price
 function updatePrice(page) {
     document.getElementById(`total_${page}`).innerHTML = `total price is: ${total_price} kr`;
 }
@@ -25,7 +22,6 @@ function saveTotal() {
     localStorage.setItem('total_saved', total_price);
 }
 
-//function to load the current total from local-storage
 function loadTotal(page) {
     let saved_total = localStorage.getItem('total_saved');
 
@@ -39,10 +35,8 @@ function addItem(itemName, price, page) {
     
     const existingItem = cart.find(item => item.name === itemName);
     if (existingItem) {
-        // Increment the quantity if the item exists
         existingItem.quantity += 1;
     } else {
-        // Add a new item if it doesn't exist
         cart.push({ name: itemName, price: price, quantity: 1 });
     }
     
@@ -51,17 +45,14 @@ function addItem(itemName, price, page) {
     renderCartList();
 }
 
-// Removes one item from cart_list (with itemName)
 function removeItem(itemName, price, page) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     const existingItem = cart.find(item => item.name === itemName);
 
     if (existingItem) {
         if (existingItem.quantity > 1) {
-            // Decrease the quantity if more than 1
             existingItem.quantity -= 1;
         } else {
-            // Remove the item completely if quantity is 1
             cart = cart.filter(item => item.name !== itemName);
         }
     }
@@ -71,11 +62,20 @@ function removeItem(itemName, price, page) {
     renderCartList();
 }
 
-// Render the cart list
 function renderCartList() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const cartList = document.getElementById("cart_list");
-    cartList.innerHTML = ""; // Clear the list before re-rendering
+    cartList.innerHTML = ""; 
+
+    if (cart.length === 0) {
+        const emptyMessage = document.createElement("p");
+        emptyMessage.textContent = "Din kundkorg är tom.";
+        emptyMessage.style.textAlign = "center";
+        emptyMessage.style.color = "#888";
+        emptyMessage.style.fontStyle = "italic";
+        cartList.appendChild(emptyMessage);
+        return; 
+    }
 
     cart.forEach(item => {
         const newListItem = document.createElement("li");
@@ -130,7 +130,6 @@ function showPopup() {
     }, 3000);
 }
 
-//This function tells you that you have paid, clears the list by ID: "cart_list".
 function payItems() {
     showPopup();
     const cart_list = document.getElementById("cart_list");
@@ -141,12 +140,10 @@ function payItems() {
     start();
 }
 
-//This makes it possible for cartlist in checkout.html to find what we added in index.html through localstorage.
 window.onload = function () {
     renderCartList();
 };
 
-//function that sets the cart-price with localstorage on the page that the user is on
 function start() {
     try {
         loadTotal('index');
@@ -155,5 +152,4 @@ function start() {
     }
 }
 
-//runs the start-function when page has finished loading
 start();
