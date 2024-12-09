@@ -210,39 +210,34 @@ button a {
     background-color: #c82333; 
 }
 
-
-
-
-
-
-/* Flexbox-container för att centrera elementen */
 .total-container {
-    display: flex; /* Flexbox-layout */
-    justify-content: center; /* Centrerar elementen horisontellt */
-    align-items: center; /* Centrerar elementen vertikalt */
-    gap: 20px; /* Mellanrum mellan totalpris och knapp */
-    margin: 50px auto; /* Utrymme runt och centrering av hela raden */
-    max-width: 600px; /* Begränsar bredden */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 20px; 
+    margin: 50px auto; 
+    max-width: 90%; 
 }
 
-/* Styling för totalpris */
+
 #total_index {
-    text-align: center; /* Centrerar texten */
-    padding: 15px 20px; /* Utrymme runt texten */
-    font-size: 1.5em; /* Gör texten stor */
+    text-align: center; 
+    padding: 15px 20px; 
+    font-size: 1.5em;
     font-weight: bold;
-    border-radius: 10px; /* Rundade hörn */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Lägger till en skugga */
-    text-transform: uppercase; /* Versaler */
-    letter-spacing: 1px; /* Lite bokstavsmellanrum */
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
     transition: all 0.3s ease-in-out;
     background-color: #f8f9fa;
     color: #333;
     border: 2px solid #007BFF;
-    flex: 0 1 auto; /* Gör så att totalpris inte tar upp hela utrymmet */
+    flex: 0 1 auto; 
+    max-width: 100%; 
 }
 
-/* Hover-effekt för totalpris */
+
 #total_index:hover {
     background-color: #007BFF;
     color: #fff;
@@ -251,27 +246,89 @@ button a {
     transform: scale(1.05);
 }
 
-/* Styling för Kundkorg-knappen */
+
 .cart-button {
-    text-align: center; /* Centrerar texten */
-    padding: 15px 20px; /* Utrymme runt texten */
-    font-size: 1.5em; /* Gör texten stor */
+    text-align: center; 
+    padding: 15px 20px; 
+    font-size: 1.5em;
     font-weight: bold;
-    border-radius: 10px; /* Rundade hörn */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Lägger till en skugga */
-    text-transform: uppercase; /* Versaler */
-    letter-spacing: 1px; /* Lite bokstavsmellanrum */
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
     transition: all 0.3s ease-in-out;
     background-color: #28a745;
     color: white;
     border: none;
     cursor: pointer;
-    flex: 1; /* Låter kundkorg-knappen ta upp lika mycket utrymme */
+    flex: 1; 
+    max-width: 100%; 
 }
 
-/* Hover-effekt för Kundkorg-knappen */
+
 .cart-button:hover {
     background-color: #218838;
     transform: scale(1.05);
+}
+
+
+@media (max-width: 768px) {
+    .total-container {
+        flex-direction: column; 
+        gap: 10px; 
+        max-width: 100%; 
+    }
+
+    
+    #total_index, .cart-button {
+        font-size: 1.2em; 
+        padding: 12px 15px; 
+    }
+}
+
+
+@media (max-width: 480px) {
+    .total-container {
+        margin: 30px auto; 
+        padding: 10px; 
+    }
+
+    #total_index, .cart-button {
+        font-size: 1em; 
+        padding: 10px 15px; 
+    }
+}
+
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 20px;
+}
+
+.item {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 100%;
+    max-width: 320px;
+}
+
+
+@media (max-width: 769px) {
+    .item {
+        max-width: 500px; 
+    }
+}
+
+
+@media (max-width: 480px) {
+    .item {
+        width: 100%; 
+    }
 }
 
