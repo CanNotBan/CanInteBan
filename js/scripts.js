@@ -153,21 +153,21 @@ function start() {
 }
 
 function displaySidebar(){
-    const sidebar = document.getElementsByClassName("sidebar")[0]
-    sidebar.classList.add("move-left")
+    const sidebar = document.getElementsByClassName("sidebar")[0];
+    sidebar.classList.add("move-left");
     sidebar.style.display = "flex";
     setTimeout(function () {
         sidebar.style.left = "calc(100vw - 430px)";
-        sidebar.classList.remove("move-left")
+        sidebar.classList.remove("move-left");
     },1000);
 }
 
 function hideSidebar(){
-    const sidebar = document.getElementsByClassName("sidebar")[0]
-    sidebar.classList.add("move-right")
+    const sidebar = document.getElementsByClassName("sidebar")[0];
+    sidebar.classList.add("move-right");
     setTimeout(function () {
         sidebar.style.left = "100vw";
-        sidebar.classList.remove("move-right")
+        sidebar.classList.remove("move-right");
         sidebar.style.display = "none";
     },1000);
     
