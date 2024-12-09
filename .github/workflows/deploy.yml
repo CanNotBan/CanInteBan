@@ -1,4 +1,5 @@
-name: Deploy to VPS
+
+# Triggers on push into main
 on:
   push:
     branches:
@@ -6,7 +7,9 @@ on:
 
 jobs:
   deploy:
+    name: Deploy to server
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
