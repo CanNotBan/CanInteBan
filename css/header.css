@@ -40,3 +40,65 @@ header{
     color: black;
     border-radius: 50%;
 }
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 100vw;
+    height: 100vh;
+    width: 430px;
+    z-index: 999;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.5s ease;
+}
+
+.x-icon{
+    height: 100px;
+    width: 60px;
+    padding-top: 20px;
+    align-self: self-end;
+    font-size: x-large;
+}
+
+.fa-user:hover,
+.fa-x:hover{
+    cursor: pointer;
+}
+
+.sidebar-bar{
+    width: 350px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.move-left {
+    animation: moveLeft 1s forwards ease;
+}
+
+.move-right {
+    animation: moveRight 1s forwards ease;
+}
+
+@keyframes moveLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-430px);
+    }
+}
+
+@keyframes moveRight {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(430px);
+    }
+}
